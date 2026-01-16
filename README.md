@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # DHIS2 standard report development environment
 
 ## How to use:
@@ -18,3 +19,7 @@
 5.  Run `yarn start` for development
 yarn build
 6.  To deploy the report to DHIS2, run `yarn deploy`
+=======
+# my-project
+This project was created to showcase coding for job applications
+>>>>>>> 3e1d53d816a5069c2f472085465c979eb0b30797
