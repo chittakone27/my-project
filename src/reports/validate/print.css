@@ -1,0 +1,148 @@
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+    * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+ 
+
+  .print-area,
+  .print-area * {
+    visibility: visible;
+  }
+
+  .print-area {
+    zoom: 0.7;               /* ✅ standard in print */
+    width: 100%;
+    min-height: 297mm;
+  }
+
+  .page-break {
+    break-before: page;
+  }
+
+  .print-block {
+    break-inside: avoid;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+
+@media print {
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  .print-area,
+  .print-area * {
+    visibility: visible;
+  }
+
+  .print-area {
+    zoom: 1.25;               /* ✅ standard in print */
+    width: 100%;
+    min-height: 297mm;
+  }
+
+  .page-break {
+    break-before: page;
+  }
+
+  .print-block {
+    break-inside: avoid;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+  
+}
+
+  
+}
+
+
+.report-section {
+  margin-bottom: 20px;
+}
+/* report.css */
+
+/* Ensure tables render properly in html2canvas */
+.report-section table {
+  border-collapse: collapse !important; /* important for merged cells */
+  width: 100%;
+}.report-section th,
+.report-section td {
+  border: 1px solid #000 !important;  /* force black borders */
+  border-collapse: collapse !important;
+  box-sizing: border-box;
+}
+
+/* Optional: padding for readability */
+.report-section th,
+.report-section td {
+  padding: 6px 8px;
+}
+
+/* Optional: keep table responsive on screen */
+.table-responsive {
+  overflow-x: auto;
+}
+
+/* Remove page break issues */
+.no-page-break {
+  page-break-inside: avoid;
+}
+
+.page-break-before {
+  page-break-before: always; /* For printing / PDF */
+  break-before: page;        /* Modern CSS standard */
+}
+
+
+.page-break-after {
+  page-break-after: always;  /* starts a new page after this element */
+  break-after: page;         /* modern property */
+}
+.a4-page {
+  width: 210mm;
+  min-height: 297mm;
+  box-sizing: border-box;
+  background: white;
+  position: relative;
+}
+
+/* cover fills exactly one page */
+.cover-page {
+  height: 297mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 25mm;
+}
+
+/* footer sticks to bottom */
+.cover-footer {
+  position: absolute;
+  bottom: 20mm;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
