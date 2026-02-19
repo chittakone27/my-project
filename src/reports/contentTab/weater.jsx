@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { API_AUTH } from "../../config";
+// import { API_AUTH } from "../../config";
 import '../validate/print.css'
 
 const Weater = ({ orgUnitId, year, onRowCount, Eventstatus, Eventdate }) => {
@@ -32,8 +32,8 @@ const Weater = ({ orgUnitId, year, onRowCount, Eventstatus, Eventdate }) => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(url, { auth: API_AUTH });
-        // const res = await axios.get(url);
+        // const res = await axios.get(url, { auth: API_AUTH });
+        const res = await axios.get(url);
 
         const eventRows = res.data.rows || [];
 

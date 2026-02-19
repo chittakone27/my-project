@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
-import { API_AUTH } from "../../config";
+// import { API_AUTH } from "../../config";
 import bed from '../image/bed.png';
 import icu from '../image/icu.png';
 import fresher from '../image/fresher.png';
@@ -26,8 +26,8 @@ const Bed = ({ orgUnitId, year, onRowCount, Eventstatus }) => {
             setLoading(true);
 
             try {
-                const res = await axios.get(url, { auth: API_AUTH });
-                // const res = await axios.get(url);
+                // const res = await axios.get(url, { auth: API_AUTH });
+                const res = await axios.get(url);
 
                 const eventRows = res.data.rows || [];
 

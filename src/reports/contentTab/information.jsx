@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
-import { API_AUTH } from "../../config";
+// import { API_AUTH } from "../../config";
 
 const info = ({ orgUnitId, year,onRowCount,Eventstatus }) => {
   const [rows, setRows] = useState([]);
@@ -30,8 +30,8 @@ const [apiError, setApiError] = useState(null);
       setLoading(true);
 
       try {
-        const res = await axios.get(url, { auth: API_AUTH });
-        // const res = await axios.get(url);
+        // const res = await axios.get(url, { auth: API_AUTH });
+        const res = await axios.get(url);
 
         const eventRows = res.data.rows || [];
 const metaItems = res.data.metaData?.items || {};
@@ -79,8 +79,8 @@ setCodeNameMap(codeMap);
             try {
               const res = await axios.get(
                 `https://hfml.gov.la/hfml/api/events/files?eventUid=${eventUid}&dataElementUid=${dataElementUid}`,
-                { auth: API_AUTH, responseType: 'blob' }
-                // { responseType: 'blob' }
+                // { auth: API_AUTH, responseType: 'blob' }
+                { responseType: 'blob' }
 
               );
               return URL.createObjectURL(res.data);

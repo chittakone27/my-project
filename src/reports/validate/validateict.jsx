@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { API_AUTH } from "../../config";
+// import { API_AUTH } from "../../config";
 
 const ICTvalidate = ({ orgUnitId, year, onStatusChange }) => {
   const [loading, setLoading] = useState(true);
@@ -83,6 +83,8 @@ const ICTvalidate = ({ orgUnitId, year, onStatusChange }) => {
 
       const keyword = row[21]; // ICT type
       const photoValue = row[22]; // photo
+            console.log(`test ${photoValue}`)
+
 
       if (completed.hasOwnProperty(keyword)) {
         completed[keyword] += 1;
@@ -99,10 +101,10 @@ const ICTvalidate = ({ orgUnitId, year, onStatusChange }) => {
       setLoading(true);
       try {
      const [aggRes, indRes] = await Promise.all([
-  // axios.get(aggregateUrl),
-  // axios.get(individualUrl),
-    axios.get(aggregateUrl, { auth: API_AUTH }),
-  axios.get(individualUrl, { auth: API_AUTH }),
+  axios.get(aggregateUrl),
+  axios.get(individualUrl),
+  //   axios.get(aggregateUrl, { auth: API_AUTH }),
+  // axios.get(individualUrl, { auth: API_AUTH }),
 ]);
 
 
@@ -164,7 +166,9 @@ const ICTvalidate = ({ orgUnitId, year, onStatusChange }) => {
             const agg = aggregateCounts[eq.key] || 0;
             const all = individualAllCounts[eq.key] || 0;
             const completed = individualCompletedCounts[eq.key] || 0;
-            const match = agg === completed && photoStatus[eq.key] !== false;
+            // const match = agg === completed && photoStatus[eq.key] !== false;
+            const match = agg === completed;
+
 
             return (
               <tr key={eq.key}>

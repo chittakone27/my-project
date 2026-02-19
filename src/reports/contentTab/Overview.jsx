@@ -6,7 +6,7 @@ import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
 import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
 import RouterIcon from '@mui/icons-material/Router';
 import MapIcon from '@mui/icons-material/Map';
-import { API_AUTH } from "../../config";
+// import { API_AUTH } from "../../config";
 import Bed from "./bed"
 import '../validate/print.css'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
@@ -80,12 +80,12 @@ const Overview = ({ orgUnitId, year, onRowCount, Eventstatus,Eventdate ,orgUnitL
       setLoading(true);
 
       try {
-        const res = await axios.get(url, { auth: API_AUTH });
-        // const res = await axios.get(url);
+        // const res = await axios.get(url, { auth: API_AUTH });
+        const res = await axios.get(url);
 
         const eventRows = res.data.rows || [];
-        // const res2 = await axios.get(url2);
-        const res2 = await axios.get(url2, { auth: API_AUTH });
+        const res2 = await axios.get(url2);
+        // const res2 = await axios.get(url2, { auth: API_AUTH });
 
         const eventRows2 = res2.data.rows || [];
 

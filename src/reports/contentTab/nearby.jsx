@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { API_AUTH } from "../../config";
+// import { API_AUTH } from "../../config";
 import Nearby_dry from "./nearby_dry";
 import Nearby_rain from "./nearby_rain";
 import '../validate/print.css'
@@ -21,8 +21,8 @@ const Nearby = ({ orgUnitId, year, onRowCount, Eventstatus }) => {
       setLoading(true);
 
       try {
-        const res = await axios.get(url, { auth: API_AUTH });
-        // const res = await axios.get(url);
+        // const res = await axios.get(url, { auth: API_AUTH });
+        const res = await axios.get(url);
 
         const eventRows = res.data.rows || [];
 

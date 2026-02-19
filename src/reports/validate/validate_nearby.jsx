@@ -15,7 +15,7 @@ const [notCompletedEnrollments, setNotCompletedEnrollments] = useState([]);
 
   const eventUrl = `https://hfml.gov.la/hfml/api/29/analytics/events/query/gr24luudE0t.json?dimension=pe:${year}&dimension=ou:${orgUnitId}&dimension=rsXdExpMW65&dimension=Jy7ou2LCeju&dimension=WH4Az6TJ5ZA&dimension=f9d4P9maZEq&stage=MLBhJz9GKds&displayProperty=NAME&totalPages=false&outputType=EVENT&desc=eventdate&paging=false`;
 
-  const enrollmentUrl = `https://hfml.gov.la/hfml/api/29/analytics/enrollments/query/gr24luudE0t.json?dimension=pe:${year}&dimension=ou:${orgUnitId}&dimension=rsXdExpMW65&dimension=Jy7ou2LCeju&dimension=WH4Az6TJ5ZA&dimension=f9d4P9maZEq&stage=MLBhJz9GKds&displayProperty=NAME&totalPages=false&outputType=ENROLLMENT&desc=enrollmentdate&paging=false`;
+  const enrollmentUrl = `https://hfml.gov.la/hfml/api/29/analytics/enrollments/query/gr24luudE0t.json?dimension=pe:THIS_YEAR;LAST_YEAR&dimension=ou:${orgUnitId}&dimension=rsXdExpMW65&dimension=Jy7ou2LCeju&dimension=WH4Az6TJ5ZA&dimension=f9d4P9maZEq&stage=MLBhJz9GKds&displayProperty=NAME&totalPages=false&outputType=ENROLLMENT&desc=enrollmentdate&paging=false`;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,10 +23,10 @@ const [notCompletedEnrollments, setNotCompletedEnrollments] = useState([]);
 
       try {
         const [eventRes, enrollmentRes] = await Promise.all([
-          axios.get(eventUrl, { auth: API_AUTH }),
-          axios.get(enrollmentUrl, { auth: API_AUTH }),
-    //  axios.get(eventUrl),
-    //       axios.get(enrollmentUrl ),
+          // axios.get(eventUrl, { auth: API_AUTH }),
+          // axios.get(enrollmentUrl, { auth: API_AUTH }),
+     axios.get(eventUrl),
+          axios.get(enrollmentUrl ),
         ]);
 
         const eventData = eventRes.data.rows || [];

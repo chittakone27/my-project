@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { API_AUTH } from "../../config";
+// import { API_AUTH } from "../../config";
 import '../validate/print.css'
 
 const Ictdetail = ({ orgUnitId, year }) => {
@@ -26,8 +26,8 @@ const Ictdetail = ({ orgUnitId, year }) => {
             setLoading(true);
 
             try {
-                const res = await axios.get(url, { auth: API_AUTH });
-                // const res = await axios.get(url);
+                // const res = await axios.get(url, { auth: API_AUTH });
+                const res = await axios.get(url);
 
                 const eventRows = res.data.rows || [];
 
@@ -70,8 +70,8 @@ const Ictdetail = ({ orgUnitId, year }) => {
                     try {
                         const res = await axios.get(
                             `https://hfml.gov.la/hfml/api/trackedEntityInstances/${teiUid}/${dataElementUid}/image`,
-                            { auth: API_AUTH, responseType: "blob" }
-                            // {responseType: "blob" }
+                            // { auth: API_AUTH, responseType: "blob" }
+                            {responseType: "blob" }
 
                         );
                         return URL.createObjectURL(res.data);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { API_AUTH } from "../../config";
+// import { API_AUTH } from "../../config";
 
 const ICTvalidate = ({ orgUnitId, year, onStatusChange,Eventstatus,Eventdate,onRowCount }) => {
   const [loading, setLoading] = useState(true);
@@ -99,10 +99,10 @@ useEffect(() => {
     setLoading(true);
     try {
       const [aggRes, indRes] = await Promise.all([
-        axios.get(aggregateUrl, { auth: API_AUTH }),
-        axios.get(individualUrl, { auth: API_AUTH }),
-        // axios.get(aggregateUrl),
-        // axios.get(individualUrl),
+        // axios.get(aggregateUrl, { auth: API_AUTH }),
+        // axios.get(individualUrl, { auth: API_AUTH }),
+        axios.get(aggregateUrl),
+        axios.get(individualUrl),
       ]);
 
       const aggregateRows = aggRes.data.rows || [];

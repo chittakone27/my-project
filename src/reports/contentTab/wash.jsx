@@ -3,7 +3,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Weater from "./weater";
-import { API_AUTH } from "../../config";
+// import { API_AUTH } from "../../config";
 import '../validate/print.css'
 
 const Wash = ({ orgUnitId, year, onRowCount, Eventstatus, Eventdate }) => {
@@ -42,8 +42,8 @@ const Wash = ({ orgUnitId, year, onRowCount, Eventstatus, Eventdate }) => {
             setLoading(true);
 
             try {
-                const res = await axios.get(url, { auth: API_AUTH });
-                // const res = await axios.get(url);
+                // const res = await axios.get(url, { auth: API_AUTH });
+                const res = await axios.get(url);
 
                 const eventRows = res.data.rows || [];
 
@@ -103,8 +103,8 @@ const Wash = ({ orgUnitId, year, onRowCount, Eventstatus, Eventdate }) => {
                         try {
                             const res = await axios.get(
                                 `https://hfml.gov.la/hfml/api/events/files?eventUid=${eventUid}&dataElementUid=${dataElementUid}`,
-                                // { responseType: 'blob' }
-                                                                { auth: API_AUTH, responseType: 'blob' }
+                                { responseType: 'blob' }
+                                                                // { auth: API_AUTH, responseType: 'blob' }
 
                             );
                             console.log('Image fetched successfully:', res.status);

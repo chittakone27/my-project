@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { API_AUTH } from "../../config";
+// import { API_AUTH } from "../../config";
 import '../validate/print.css'
 import FDstaff from "./foodNdrug";
 
@@ -34,12 +34,12 @@ const [rowCount, setRowCount] = useState(0);
       setLoading(true);
 
       try {
-        const res = await axios.get(url, { auth: API_AUTH });
-        // const res = await axios.get(url);
+        // const res = await axios.get(url, { auth: API_AUTH });
+        const res = await axios.get(url);
 
         // const eventRows = res.data.rows || [];
-            const res2 = await axios.get(url2, { auth: API_AUTH });
-            // const res2 = await axios.get(url2);
+            // const res2 = await axios.get(url2, { auth: API_AUTH });
+            const res2 = await axios.get(url2);
 
         const eventRows2 = res2.data.rows || [];
 

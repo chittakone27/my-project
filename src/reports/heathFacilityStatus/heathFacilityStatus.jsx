@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { API_AUTH } from "@/config";
+// import { API_AUTH } from "@/config";
 const Healthstatus = ({ orgUnitId, year, Hstatus, setCode }) => {
   const [options, setOptions] = useState({});
 
@@ -9,8 +9,8 @@ const Healthstatus = ({ orgUnitId, year, Hstatus, setCode }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(url, { auth: API_AUTH });
-        // const res = await axios.get(url);
+        // const res = await axios.get(url, { auth: API_AUTH });
+        const res = await axios.get(url);
 
         const eventRows = res.data.rows || [];
         const items = res.data.metaData?.items || {};

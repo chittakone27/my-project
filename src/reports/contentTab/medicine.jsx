@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { API_AUTH } from "../../config";
+// import { API_AUTH } from "../../config";
 import "react-toastify/dist/ReactToastify.css";
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
@@ -28,8 +28,8 @@ const Medicine = ({ orgUnitId, year, onRowCount, Eventstatus,Eventdate }) => {
       setLoading(true);
 
       try {
-        const res = await axios.get(url, { auth: API_AUTH });
-        // const res = await axios.get(url);
+        // const res = await axios.get(url, { auth: API_AUTH });
+        const res = await axios.get(url);
 
         const eventRows = res.data.rows || [];
         const metaData = res.data.metaData;
@@ -83,8 +83,8 @@ const Medicine = ({ orgUnitId, year, onRowCount, Eventstatus,Eventdate }) => {
             try {
               const res = await axios.get(
                 `https://hfml.gov.la/hfml/api/events/files?eventUid=${eventUid}&dataElementUid=${dataElementUid}`,
-                { auth: API_AUTH, responseType: 'blob' }
-                // { responseType: 'blob' }
+                // { auth: API_AUTH, responseType: 'blob' }
+                { responseType: 'blob' }
 
               );
               return URL.createObjectURL(res.data);

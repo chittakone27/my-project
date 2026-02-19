@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { API_AUTH } from "../config";
+// import { API_AUTH } from "../config";
 
 const BookCover = ({ year, orgUnitId,onParentReady  }) => {
   const [orgUnit, setOrgUnit] = useState(null);
@@ -19,7 +19,7 @@ const BookCover = ({ year, orgUnitId,onParentReady  }) => {
         `https://hfml.gov.la/hfml/api/organisationUnits/${orgUnitId}?fields=id,name,level,displayName,parent[id,name,displayName,parent[id,name,displayName]]`,
         {
           headers: {
-      Authorization: `Basic ${btoa(`${API_AUTH.username}:${API_AUTH.password}`)}`,
+      // Authorization: `Basic ${btoa(`${API_AUTH.username}:${API_AUTH.password}`)}`,
           },
         }
       )

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { API_AUTH } from "../../config";
+// import { API_AUTH } from "../../config";
 import Catchmendry from './catchment_dry';
 import Catchmentrain from "./catchment_rain";
 
@@ -14,7 +14,7 @@ const Catchment = ({ year, orgUnitId, setencode, setOrgParentLabel }) => {
 
   const authHeader = {
     headers: {
-      Authorization: `Basic ${btoa(`${API_AUTH.username}:${API_AUTH.password}`)}`,
+      // Authorization: `Basic ${btoa(`${API_AUTH.username}:${API_AUTH.password}`)}`,
     },
   };
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { API_AUTH } from "../../config";
+// import { API_AUTH } from "../../config";
 
 const FDstaff = ({ orgUnitId, year, setname, setphone, setposition,setaltname, setaltphone, setaltposition }) => {
   const [loading, setLoading] = useState(true);
@@ -25,8 +25,8 @@ const FDstaff = ({ orgUnitId, year, setname, setphone, setposition,setaltname, s
       setError("");
 
       try {
-        const res = await axios.get(url, { auth: API_AUTH });
-        // const res = await axios.get(url);
+        // const res = await axios.get(url, { auth: API_AUTH });
+        const res = await axios.get(url);
 
         const rows = res.data.rows || [];
 

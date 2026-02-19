@@ -6,7 +6,7 @@ import MCH from "./MCH";
 import EPI from "./EPI";
 import '../validate/print.css'
 
-  import { API_AUTH } from "../../config";
+  // import { API_AUTH } from "../../config";
 
 const ClinicalEquipment = ({ orgUnitId, orgUnitLabel, year, onRowCount,onMissingImage,Eventstatus,Eventdate  }) => {
   const [rows, setRows] = useState([]);
@@ -25,8 +25,8 @@ useEffect(() => {
     setApiError(null);
 
     try {
-      const res = await axios.get(url, { auth: API_AUTH });
-      // const res = await axios.get(url);
+      // const res = await axios.get(url, { auth: API_AUTH });
+      const res = await axios.get(url);
 
       const eventRows = res.data?.rows || [];
       if (onRowCount) {
@@ -102,8 +102,8 @@ useEffect(() => {
           try {
             const res = await axios.get(
               `https://hfml.gov.la/hfml/api/events/files?eventUid=${eventUid}&dataElementUid=${uid}`,
-              { auth: API_AUTH, responseType: "blob" }
-              // {responseType: "blob" }
+              // { auth: API_AUTH, responseType: "blob" }
+              {responseType: "blob" }
 
             );
             return URL.createObjectURL(res.data);

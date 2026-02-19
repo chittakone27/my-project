@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { API_AUTH } from "../../config";
+// import { API_AUTH } from "../../config";
 import TwoWheelerIcon from '@mui/icons-material/TwoWheeler';
 import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 import SailingIcon from '@mui/icons-material/Sailing';
@@ -22,8 +22,8 @@ const catchment_dry = ({ orgUnitId, year,Encode }) => {
       setLoading(true);
 
       try {
-        const res = await axios.get(url, { auth: API_AUTH });
-        // const res = await axios.get(url);
+        // const res = await axios.get(url, { auth: API_AUTH });
+        const res = await axios.get(url);
 
         const eventRows = res.data.rows || [];
 
